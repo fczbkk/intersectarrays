@@ -29,5 +29,15 @@ intersectArrays = ->
 
 
 # Expose object to the global namespace.
-root = if typeof exports is 'object' then exports else this
-root.intersectArrays = intersectArrays
+
+# Node.js
+if module?.exports
+  module.exports = intersectArrays
+
+# AMD / RequireJS
+else if define?.amd
+  define [], -> intersectArrays
+
+# SCRIPT tag in browser
+else
+  this.intersectArrays = intersectArrays

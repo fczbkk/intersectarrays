@@ -3,6 +3,7 @@
   "name": "intersectarrays",
   "version": "1.0.0",
   "description": "Creates array containing values that are present in all provided arrays.",
+  "main": "lib/intersectarrays.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/fczbkk/intersectarrays.git"
@@ -28,7 +29,7 @@
     "grunt-bump": "*",
     "grunt-conventional-changelog": "*",
     "grunt-files-check": "*",
-    
+
     "load-grunt-tasks": "*"
   }
 }
