@@ -7,9 +7,12 @@ intersectArrays = ->
   for item in arguments
     return [] unless isArray item
 
+    checkedValues = {}
     for key in item
-      values[key] ?= 0
-      values[key]++
+      if !checkedValues[key]
+        values[key] ?= 0
+        values[key]++
+        checkedValues[key] = true
 
   result = []
   for key, count of values
