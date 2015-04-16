@@ -24,6 +24,6 @@ describe 'intersectArrays', ->
     result = intersectArrays ['a', 'b'], ['a', 'b', 'c'], ['a', 'b', 'a']
     expect(result.length).toEqual 2
 
-  it 'should work with duplicated values', ->
-    result = intersectArrays ['a', 'b', 'a'], ['b', 'c'], ['a', 'b']
-    expect(result).toEqual ['b']
+  it 'should not produce false positives on duplicates', ->
+    result = intersectArrays ['a', 'a'], []
+    expect(result).toEqual []

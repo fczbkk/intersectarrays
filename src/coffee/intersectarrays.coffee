@@ -2,18 +2,24 @@ isArray = (obj) ->
   obj?.constructor.toString().indexOf('Array') isnt -1
 
 intersectArrays = ->
+  # keep track of all values in all arrays and counts their occurences
   values = {}
 
   for item in arguments
+
+    # if any of the arguments is not an array, return empty array immediately
     return [] unless isArray item
 
-    checkedValues = {}
+    # keep track of values used in this item, make sure they are unique
+    item_values = {}
+
     for key in item
-      if !checkedValues[key]
+      unless item_values[key]
         values[key] ?= 0
         values[key]++
-        checkedValues[key] = true
+        item_values[key] = true
 
+  # construct resulting array that consists only of values used in all arrays
   result = []
   for key, count of values
     if count >= arguments.length
