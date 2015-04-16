@@ -63,7 +63,7 @@ module.exports = (grunt) ->
       test:
         files: ['test/src/*.coffee']
         tasks: ['coffeelint:test', 'coffee:test', 'jasmine']
-      
+
 
 
 
@@ -71,7 +71,7 @@ module.exports = (grunt) ->
       options:
         files: [
           'package.json'
-          
+          'bower.json'
         ]
         updateConfigs: ['pkg']
         commitFiles: ['-a']
